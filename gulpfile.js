@@ -16,7 +16,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('dist', ["clean"], function (cb) {
-    return gulp.src('./js/bootstrap-modal-wrapper-factory.js')
+    return gulp.src('./js/bootstrap-alert-wrapper.js')
             .pipe(eslint({
                 "env": {"browser": true, "node": true, "jquery": true},
                 "rules": {
