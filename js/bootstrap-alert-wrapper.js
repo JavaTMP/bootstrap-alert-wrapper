@@ -1,10 +1,3 @@
-/*!
- * bootstrap-alert-wrapper v1.0.0 (http://javatmp.com)
- * Bootstrap alert wrapper factory for creating dynamic alert instances.
- * Copyright 2018 JavaTMP
- * Licensed under MIT (https://github.com/JavaTMP/bootstrap-alert-wrapper/blob/master/LICENSE)
- */
-
 (function (root, factory) {
     "use strict";
     // CommonJS module is defined
