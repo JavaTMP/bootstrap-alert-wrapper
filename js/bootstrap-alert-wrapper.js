@@ -25,13 +25,6 @@
         this.defaults = defaults;
     }
 
-    AlertWrapperFactory.prototype.createModal = function (options) {
-        var newModalWrapper = new ModalWrapper(this, options);
-        this.globalModals.push(newModalWrapper);
-        newModalWrapper.init();
-        return newModalWrapper;
-    };
-
     AlertWrapperFactory.prototype.createAlert = function (options) {
 
         options = $.extend(true, {
@@ -43,7 +36,8 @@
             reset: true, // close all previouse alerts first
             focus: true, // auto scroll to the alert after shown
             closeInSeconds: 0, // auto close after defined seconds
-            icon: "" // put icon before the message
+            icon: "", // put icon before the message
+            offset: 0
         }, options);
 
         var id = getUniqueID("alertAuto");
@@ -63,7 +57,7 @@
             $(options.container).prepend(html);
         }
 
-        scrollTo($('#' + id));
+        scrollTo($('#' + id), options.offset);
 
         if (options.closeInSeconds > 0) {
             setTimeout(function () {
@@ -74,10 +68,10 @@
         return id;
     };
 
-    function scrollTo(el, container) {
+    function scrollTo(el, offset, container) {
         var pos = (el && el.length > 0) ? el.offset().top : 0;
         var actuallContainer = !!container ? container : "html,body";
-        pos = pos - el.height() - javatmp.getFixedOffset();
+        pos = pos - el.height() - offset;
         $(actuallContainer).animate({
             scrollTop: pos
         }, 'slow');
