@@ -57,7 +57,9 @@
             $(options.container).prepend(html);
         }
 
-        scrollTo($('#' + id), options.offset);
+        if (options.focus) {
+            scrollTo($('#' + id), options.offset);
+        }
 
         if (options.closeInSeconds > 0) {
             setTimeout(function () {
